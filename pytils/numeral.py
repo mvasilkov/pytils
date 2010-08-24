@@ -235,6 +235,70 @@ def _get_plural_legacy(amount, extra_variants):
         variants = extra_variants
     return get_plural(amount, variants, absence)
 
+
+@takes((int,long),
+       (unicode, list_of(unicode), tuple_of(unicode)),
+        optional((nothing, unicode)),
+        absence=optional((nothing, unicode)))
+def get_plural_amount(amount, variants):
+    """
+    Get proper case with value
+
+    @param amount: amount of objects
+    @type amount: C{int} or C{long}
+
+    @param variants: variants (forms) of object in such form:
+        (1 object, 2 objects, 5 objects).
+    @type variants: 3-element C{sequence} of C{unicode}
+        or C{unicode} (three variants with delimeter ',')
+
+    @param absence: if amount is zero will return it
+    @type absence: C{unicode}
+
+    @return: amount with proper variant
+    @rtype: C{unicode}
+    """
+    return u"%d %s" % (amount, choose_plural_amount(amount, variants))
+
+
+
+@takes((int,long), (unicode, list_of(unicode), tuple_of(unicode)))
+def choose_plural_amount(amount, variants):
+    """
+    Choose proper case depending on amount, for "N of M items" case
+
+    @param amount: amount of objects
+    @type amount: C{int} or C{long}
+
+    @param variants: variants (forms) of object in such form:
+        (1 object, 2 objects).
+    @type variants: 2-element C{sequence} of C{unicode}
+        or C{unicode} (two variants with delimeter ',')
+
+    @return: proper variant
+    @rtype: C{unicode}
+
+    @raise L{pytils.err.InputParameterError}: input parameters' check failed
+        (amount isn't C{int}, variants isn't C{sequence})
+    @raise ValueError: amount is negative
+    @raise ValueError: variants' length lesser than 2
+    """
+
+    if isinstance(variants, unicode):
+        variants = utils.split_values(variants)
+
+    check_length(variants, 2)
+    check_positive(amount)
+    
+    amount_str = str(amount)
+
+    if amount == 1 or (amount_str[-1::] == "1" and amount_str[-2::] != "11"):
+        variant = 0
+    else:
+        variant = 1
+
+    return variants[variant]
+
 @takes((int, long, float, Decimal), optional(bool), zero_for_kopeck=optional(bool))
 def rubles(amount, zero_for_kopeck=False):
     """
