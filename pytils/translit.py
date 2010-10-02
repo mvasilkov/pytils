@@ -24,7 +24,7 @@ from pytils.utils import takes, returns
 TRANSTABLE = (
         (u"'", u"'"),
         (u'"', u'"'),
-        (u"‘", u"'"),
+        (u"’", u"'"),
         (u"’", u"'"),
         (u"«", u'"'),
         (u"»", u'"'),
@@ -60,6 +60,8 @@ TRANSTABLE = (
         (u"Ю", u"YU"),
         (u"Я", u"Ya"),
         (u"Я", u"YA"),
+        (u"Ї", u"Yi"),
+        (u"Ї", u"YI"),
         # one-symbol replacements
         (u"А", u"A"),
         (u"Б", u"B"),
@@ -85,6 +87,8 @@ TRANSTABLE = (
         (u"Э", u"E"),
         (u"Ъ", u"`"),
         (u"Ь", u"'"),
+        (u"І", u"I"),
+        (u"Ґ", u"G"),
         ## lower
         # three-symbols replacements
         (u"щ", u"sch"),
@@ -97,6 +101,7 @@ TRANSTABLE = (
         (u"ы", u"yi"),
         (u"ю", u"yu"),
         (u"я", u"ya"),
+        (u"ї", u"yi"),
         # one-symbol replacements
         (u"а", u"a"),
         (u"б", u"b"),
@@ -122,6 +127,8 @@ TRANSTABLE = (
         (u"э", u"e"),
         (u"ъ", u"`"),
         (u"ь", u"'"),
+        (u"і", u"i"),
+        (u"ґ", u"g"),
         # Make english alphabet full: append english-english pairs
         # for symbols which is not used in russian-english
         # translations. Used in slugify.
