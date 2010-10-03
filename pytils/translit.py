@@ -62,6 +62,8 @@ TRANSTABLE = (
         (u"Я", u"YA"),
         (u"Ї", u"Yi"),
         (u"Ї", u"YI"),
+        (u"Є", u"Ye"),
+        (u"Є", u"YE"),
         # one-symbol replacements
         (u"А", u"A"),
         (u"Б", u"B"),
@@ -102,6 +104,7 @@ TRANSTABLE = (
         (u"ю", u"yu"),
         (u"я", u"ya"),
         (u"ї", u"yi"),
+        (u"є", u"ye"),
         # one-symbol replacements
         (u"а", u"a"),
         (u"б", u"b"),
