@@ -18,6 +18,7 @@
 pytils.numeral templatetags for Django web-framework
 """
 
+from __future__ import absolute_import
 from django import template, conf
 from pytils import numeral
 from pytils.templatetags import pseudo_str, pseudo_unicode, init_defaults

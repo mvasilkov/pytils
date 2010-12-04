@@ -18,6 +18,7 @@
 pytils.dt templatetags for Django web-framework
 """
 
+from __future__ import absolute_import
 import time
 from django import template, conf
 from pytils import dt
