@@ -34,6 +34,7 @@ TRANSTABLE = (
         (u"—", u"-"),  # em dash
         (u"‒", u"-"),  # figure dash
         (u"−", u"-"),  # minus
+        (u"_", u"_"),  
         (u"…", u"..."),
         (u"№", u"#"),
         ## upper
